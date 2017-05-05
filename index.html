@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Circle runing</title>
+</head>
+<body>
+    <div class="container">
+        <div class="target"></div>
+    </div>
+    <!--<button id="button1" style="background-color:#f2f2f2; border-radius:5px;height:50px;width:150px;position:relative;z-index:10" onmousedown="moveIt()" onmouseover="moveIt()" onfocus="moveIt();this.blur()">Попробуй нажать</button>-->
+
+    <script type="text/javascript">
+        <!--
+        function getObj(objID)
+        {
+            if (document.getElementById) {return document.getElementById(objID);}
+            else if (document.all) {return document.all[objID];}
+            else if (document.layers) {return document.layers[objID];}
+        }
+
+        cobj=getObj("button1");
+        var x1=0, y1=0;
+
+        function moveIt(){
+            x=Math.floor(Math.random()*401);
+            y=Math.floor(Math.random()*301);
+            while (Math.abs(x1-x)<=70) {x=Math.floor(Math.random()*401);}
+            while (Math.abs(y1-y)<=50) {y=Math.floor(Math.random()*301);}
+            x1=x;
+            y1=y;
+            cobj.style.left = x+"px";
+            cobj.style.top = y+"px";
+        }
+        //-->
+    </script>
+    <script type="text/javascript" src="js/circle.js"></script>
+
+</body>
+</html>
