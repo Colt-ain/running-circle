@@ -19,7 +19,6 @@ var coordGen = function () {
     var X = X1 + Rtarget;
     var Y = Y1 + Rtarget;
     var Re = Math.sqrt( Math.pow( (X0 - X), 2) + Math.pow( (Y0 - Y), 2) );
-    console.log(Re);
     window.isOk = function () {
         if (Re > 125 ) {
             return false;
@@ -38,8 +37,6 @@ var jumpTarget = function () {
     target.style.top = Y1 + 'px';
     target.style.left = X1 + 'px';
     target.addEventListener('mousemove', jumpTarget);
-    //var R1 = Math.sqrt( Math.pow( (CIRCLE_CONTAINER - X1), 2) + Math.pow( (CIRCLE_CONTAINER - Y1), 2) );
-
 };
 
 var runingBug = function () {
