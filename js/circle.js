@@ -1,15 +1,51 @@
 'use strict';
 
-var container = document.querySelector('.container');
-var target = container.querySelector('.target');
-var CICLE_RADIUS = 150 - 50;
+
+var X1;
+var Y1;
+var fi;
+var X0 = 150;
+var Y0 = 150;
+var CIRCLE_CONTAINER = 150;
+var CIRCLE_RADIUS = CIRCLE_CONTAINER - 50;
+
+
+
+var coordGen = function () {
+    var Rtarget = 25;
+    fi = Math.random() * 2 * Math.PI;
+    X1 = CIRCLE_RADIUS + CIRCLE_RADIUS * Math.cos(fi);
+    Y1 = CIRCLE_RADIUS - CIRCLE_RADIUS * Math.sin(fi) + Rtarget;
+    var X = X1 + Rtarget;
+    var Y = Y1 + Rtarget;
+    var Re = Math.sqrt( Math.pow( (X0 - X), 2) + Math.pow( (Y0 - Y), 2) );
+    console.log(Re);
+    window.isOk = function () {
+        if (Re > 125 ) {
+            return false;
+        } else {
+            return true;
+        }
+    };
+};
+
 var jumpTarget = function () {
-    var fi = Math.random() * 2 * Math.PI;
+    var container = document.querySelector('.container');
+    var target = container.querySelector('.target');
+    window.coordGen();
     target.style.transition = '200ms';
     target.style.transform = 'rotate(' + (fi * 100) + 'deg)';
-    target.style.top = ( CICLE_RADIUS + CICLE_RADIUS * Math.cos(fi)) + 'px';
-    target.style.left = ( 25 + CICLE_RADIUS - CICLE_RADIUS * Math.sin(fi)) + 'px';
+    target.style.top = Y1 + 'px';
+    target.style.left = X1 + 'px';
     target.addEventListener('mousemove', jumpTarget);
+    //var R1 = Math.sqrt( Math.pow( (CIRCLE_CONTAINER - X1), 2) + Math.pow( (CIRCLE_CONTAINER - Y1), 2) );
+
 };
-target.addEventListener('mouseover', jumpTarget);
+
+var runingBug = function () {
+    var container = document.querySelector('.container');
+    var target = container.querySelector('.target');
+    target.addEventListener('mouseover', jumpTarget);
+};
+runingBug();
 
